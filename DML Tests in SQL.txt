@@ -1,0 +1,124 @@
+/////////////////////////////////////////////////////////////////
+Select GroupName from WritingGroups;
+
+Output:
+Astrologian
+Magical DPS
+Ninja
+Physical Ranged
+Scholar
+White Mage
+/////////////////////////////////////////////////////////////////
+Select PublisherName from Publishers;
+
+PUBLISHERNAME
+Don't Stand Close
+Healers United
+Thaumaturge Guild
+The Balance
+The Shadows
+/////////////////////////////////////////////////////////////////
+Select BookTitle from Books;
+
+BOOKTITLE
+Black Magicks
+Calculated MCH
+Expert's Guide to Astrologian
+Expert's Guide to Scholar
+Intermediate Guide to WHM
+Intro to Astrologian
+Intro to Scholar
+Intro to White Mage
+Red Magic: Accelerating yourself
+Singing to the top!
+Summoning Bahamut
+/////////////////////////////////////////////////////////////////
+Select GroupName, HeadWriter, YearFormed, Subject 
+from WritingGroups
+where GroupName = 'Scholar';
+
+GROUPNAME	HEADWRITER	YEARFORMED	SUBJECT
+Scholar		Jace Celeris	2013		Healing
+
+/////////////////////////////////////////////////////////////////
+Select PublisherName, PublisherAddress, PublisherPhone, PublisherEmail 
+from Publishers
+where PublisherName = 'Don''t Stand Close';
+
+PUBLISHERNAME		PUBLISHERADDRESS	PUBLISHERPHONE	PUBLISHEREMAIL
+Don't Stand Close	Coerthas		456-456-4564	projectiles@gmail.com
+/////////////////////////////////////////////////////////////////
+Select BookTitle, GroupName, YearPublished, NumberPages, PublisherName, PublisherAddress, PublisherPhone, PublisherEmail 
+from Publishers Inner Join Books using (PublisherName)
+where BookTitle = 'Singing to the top!' AND PublisherName = 'Don''t Stand Close' ;
+
+BOOKTITLE		GROUPNAME	YEARPUBLISHED	NUMBERPAGES	PUBLISHERNAME		PUBLISHERADDRESS	PUBLISHERPHONE	PUBLISHEREMAIL
+Singing to the top!	Physical Ranged	2018		218		Don't Stand Close	Coerthas		456-456-4564	projectiles@gmail.com
+
+/////////////////////////////////////////////////////////////////
+Select BookTitle, PublisherName, YearPublished, NumberPages, GroupName, HeadWriter, YearFormed, Subject
+from WritingGroups Inner Join Books using (GroupName)
+where BookTitle = 'Black Magicks' AND GroupName = 'Magical DPS';
+
+BOOKTITLE	PUBLISHERNAME		YEARPUBLISHED	NUMBERPAGES	GROUPNAME	HEADWRITER	YEARFORMED	SUBJECT
+Black Magicks	Thaumaturge Guild	2014		264		Magical DPS	Shantotto	2000		Magic
+
+/////////////////////////////////////////////////////////////////
+Insert Into Books (BookTitle, GroupName, PublisherName, YearPublished, NumberPages) 
+values ('The Way of the Ninja', 'Ninja', 'ThInserte Shadows', '1667', '187');
+
+
+Select BookTitle, GroupName, PublisherName, YearPublished, NumberPages
+from Books
+where BookTitle = 'The Way of the Ninja' AND PublisherName = 'The Shadows';
+
+
+BOOKTITLE		GROUPNAME	PUBLISHERNAME	YEARPUBLISHED	NUMBERPAGES
+The Way of the Ninja	Ninja		The Shadows	1667		187
+
+/////////////////////////////////////////////////////////////////
+Insert into Publishers(PublisherName, PublisherAddress, PublisherPhone, PublisherEmail)
+values ('City Ninja Service', 'SouthPark', '323-343-3434', 'cityninjaservice@aol.com');
+
+Select PublisherName, PublisherAddress, PublisherPhone, PublisherEmail
+From Publishers
+where PublisherName = 'City Ninja Service';
+
+PUBLISHERNAME		PUBLISHERADDRESS	PUBLISHERPHONE	PUBLISHEREMAIL
+City Ninja Service	SouthPark		lkjwlkf		cityninjaservice@aol.com
+
+/////////////////////////////////////////////////////////////////
+Update Books
+set PublisherName = 'City Ninja Service'
+where PublisherName = 'The Shadows';
+
+Select BookTitle, GroupName, PublisherName, YearPublished, NumberPages
+from Books
+where BookTitle = 'The Way of the Ninja' AND GroupName = 'Ninja';
+
+BOOKTITLE		GROUPNAME	PUBLISHERNAME		YEARPUBLISHED	NUMBERPAGES
+The Way of the Ninja	Ninja		City Ninja Service	1885		244
+/////////////////////////////////////////////////////////////////
+delete from Books
+where BookTitle = 'The Way of the Ninja' AND Groupname = 'Ninja'
+
+select BookTitle from Books;
+
+BOOKTITLE
+Black Magicks
+Calculated MCH
+Expert's Guide to Astrologian
+Expert's Guide to Scholar
+Intermediate Guide to WHM
+Intro to Astrologian
+Intro to Scholar
+Intro to White Mage
+Red Magic: Accelerating yourself
+Singing to the top!
+Summoning Bahamut
+/////////////////////////////////////////////////////////////////
+
+
+
+
+
