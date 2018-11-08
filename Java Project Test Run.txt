@@ -1,5 +1,5 @@
-run:
-Name of the database ( not the user account): kwlkj
+run: 
+Name of the database ( not the user account): awfds
 
 java.sql.SQLNonTransientConnectionException: The connection was refused because the database kwlkj was not found.
 
