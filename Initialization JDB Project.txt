@@ -69,4 +69,5 @@ INSERT into Books (bookTitle, GroupName, PublisherName, yearPublished, NumberPag
 ('Calculated MCH', 'Physical Ranged', 'Don''t Stand Close', '2018', '187'),
 ('Summoning Bahamut', 'Magical DPS', 'The Balance', '2017', '386'),
 ('Black Magicks', 'Magical DPS', 'Thaumaturge Guild', '2014', '264'),
-('Red Magic: Accelerating yourself', 'Magical DPS', 'The Balance', '2017', '233' );
+('Red Magic: Accelerating yourself', 'Magical DPS', 'The Balance', '2017', '233' )
+('The Shadows', 'Ninja', 'The Shadows', '2018', '222');
